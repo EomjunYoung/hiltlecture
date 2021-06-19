@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hiltlecture.R
 import com.example.hiltlecture.databinding.FragmentMainBinding
@@ -30,6 +32,11 @@ private const val ARG_PARAM2 = "param2"
 //hilt로부터 의존성 주입을 받는 대상이 되는 객체가 있는 곳에 기입하는 어노테이션
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
+
+    private val viewModel by viewModels<MainViewModel>()
+    //ActivityViewModels로 하게되면 이 fragment가 속한 MainActivity를 따르므로
+    //위 viewmodel과는 다른 뷰모델이 된다
+    private val activityViewModel by activityViewModels<MainViewModel>()
 
     private lateinit var binding: FragmentMainBinding
 

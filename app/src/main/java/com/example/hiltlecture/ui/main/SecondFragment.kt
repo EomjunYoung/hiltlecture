@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hiltlecture.R
 import com.example.hiltlecture.databinding.FragmentSecondBinding
@@ -28,6 +29,8 @@ private const val ARG_PARAM2 = "param2"
 //hilt로부터 의존성 주입을 받는 대상이 되는 객체가 있는 곳에 기입하는 어노테이션
 @AndroidEntryPoint
 class SecondFragment : Fragment(R.layout.fragment_second) {
+
+    private val viewModel by viewModels<MainViewModel>()
 
     private lateinit var binding: FragmentSecondBinding
 
